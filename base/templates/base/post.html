@@ -1,0 +1,37 @@
+{% extends 'main.html' %}  
+{% load static %}
+{% block content %}
+<head>
+<link href="https://fonts.googleapis.com/css?family=Raleway:600,900" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="{% static 'post_style.css' %}">
+</head>
+    
+    
+<body>
+    <p class="heading">{{post.post_name}}</p>
+    
+    <div class="container">
+        
+        <div class="top">
+        
+            <ul>
+                {% for p in images %}
+                <li><a data-fancybox="galery" href="{{p.images.url}}"><img src="{{p.images.url}}"></a></li>                  
+                {% endfor %} 
+            </ul>
+         
+        </div>
+         
+  
+    </div>
+
+</body>    
+
+     
+  
+{% endblock %}
+
+
