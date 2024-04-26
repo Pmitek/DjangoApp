@@ -1,0 +1,19 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: django-app
+  namespace: djangoapp
+spec:
+  hosts:
+    - django-app
+  http:
+    - route:
+        - destination:
+            host: django-app
+            subset: v1
+          weight: 0
+        - destination:
+            host: django-app
+            subset: v2
+          weight: 100
